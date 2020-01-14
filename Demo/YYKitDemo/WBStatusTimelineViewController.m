@@ -84,18 +84,18 @@
             for (WBStatus *status in item.statuses) {
                 WBStatusLayout *layout = [[WBStatusLayout alloc] initWithStatus:status style:WBLayoutStyleTimeline];
 //                [layout layout];
-                [_layouts addObject:layout];
+                [self.layouts addObject:layout];
             }
         }
         
         // 复制一下，让列表长一些，不至于滑两下就到底了
-        [_layouts addObjectsFromArray:_layouts];
+        [self.layouts addObjectsFromArray:self.layouts];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.title = [NSString stringWithFormat:@"Weibo (loaded:%d)", (int)_layouts.count];
+            self.title = [NSString stringWithFormat:@"Weibo (loaded:%d)", (int)self.layouts.count];
             [indicator removeFromSuperview];
             self.navigationController.view.userInteractionEnabled = YES;
-            [_tableView reloadData];
+            [self.tableView reloadData];
         });
     });
 }
@@ -113,9 +113,9 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if (_fpsLabel.alpha == 0) {
+    if (self.fpsLabel.alpha == 0) {
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            _fpsLabel.alpha = 1;
+            self.fpsLabel.alpha = 1;
         } completion:NULL];
     }
 }
@@ -124,7 +124,7 @@
     if (!decelerate) {
         if (_fpsLabel.alpha != 0) {
             [UIView animateWithDuration:1 delay:2 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-                _fpsLabel.alpha = 0;
+                self.fpsLabel.alpha = 0;
             } completion:NULL];
         }
     }
@@ -133,7 +133,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (_fpsLabel.alpha != 0) {
         [UIView animateWithDuration:1 delay:2 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            _fpsLabel.alpha = 0;
+            self.fpsLabel.alpha = 0;
         } completion:NULL];
     }
 }
@@ -141,7 +141,7 @@
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
     if (_fpsLabel.alpha == 0) {
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            _fpsLabel.alpha = 1;
+            self.fpsLabel.alpha = 1;
         } completion:^(BOOL finished) {
         }];
     }

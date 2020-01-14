@@ -483,19 +483,19 @@
     }
     
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-        _likeImageView.layer.transformScale = 1.7;
+        self.likeImageView.layer.transformScale = 1.7;
     } completion:^(BOOL finished) {
         
-        _likeImageView.image = image;
-        _likeLabel.width = CGFloatPixelRound(textLayout.textBoundingRect.size.width);
-        _likeLabel.textLayout = layout.toolbarLikeTextLayout;
-        [self adjustImage:_likeImageView label:_likeLabel inButton:_likeButton];
+        self.likeImageView.image = image;
+        self.likeLabel.width = CGFloatPixelRound(textLayout.textBoundingRect.size.width);
+        self.likeLabel.textLayout = layout.toolbarLikeTextLayout;
+        [self adjustImage:self.likeImageView label:self.likeLabel inButton:self.likeButton];
         
         [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-            _likeImageView.layer.transformScale = 0.9;
+            self.likeImageView.layer.transformScale = 0.9;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-                _likeImageView.layer.transformScale = 1;
+                self.likeImageView.layer.transformScale = 1;
             } completion:^(BOOL finished) {
             }];
         }];
@@ -754,7 +754,7 @@
     [_profileView.avatarView setImageWithURL:layout.status.user.avatarLarge //profileImageURL
                                  placeholder:nil
                                      options:kNilOptions
-                                     manager:[WBStatusHelper avatarImageManager] //< 圆角头像manager，内置圆角处理
+                                     manager:[WBStatusHelper avatarImageManager] ///< 圆角头像manager，内置圆角处理
                                     progress:nil
                                    transform:nil
                                   completion:nil];
@@ -981,6 +981,7 @@
 }
 
 - (void)prepareForReuse {
+    [super prepareForReuse];
     // ignore
 }
 

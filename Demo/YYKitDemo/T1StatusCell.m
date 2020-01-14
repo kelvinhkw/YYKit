@@ -397,10 +397,10 @@
     }
     
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        _retweetImageView.layer.transformScale = 1.5;
+        self.retweetImageView.layer.transformScale = 1.5;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _retweetImageView.layer.transformScale = 1;
+            self.retweetImageView.layer.transformScale = 1;
         } completion:^(BOOL finished) {
             
         }];
@@ -440,10 +440,10 @@
         _favoriteImageView.image = [T1Helper imageNamed:@"icn_tweet_action_inline_favorite_off"];
         
         [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _favoriteImageView.layer.transformScale = 1.5;
+            self.favoriteImageView.layer.transformScale = 1.5;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                _favoriteImageView.layer.transformScale = 1;
+                self.favoriteImageView.layer.transformScale = 1;
             } completion:^(BOOL finished) {
                 
             }];

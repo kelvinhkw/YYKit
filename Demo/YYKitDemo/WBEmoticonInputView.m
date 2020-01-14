@@ -204,13 +204,13 @@
     [_magnifierContent.layer removeAllAnimations];
     NSTimeInterval dur = 0.1;
     [UIView animateWithDuration:dur delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _magnifierContent.top = 3;
+        self->_magnifierContent.top = 3;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:dur delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _magnifierContent.top = 6;
+            self->_magnifierContent.top = 6;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:dur delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                _magnifierContent.top = 5;
+                self->_magnifierContent.top = 5;
             } completion:^(BOOL finished) {
             }];
         }];

@@ -275,7 +275,7 @@
         _toolbar.bottom = CGRectGetMinY(toFrame);
     } else {
         [UIView animateWithDuration:transition.animationDuration delay:0 options:transition.animationOption | UIViewAnimationOptionBeginFromCurrentState animations:^{
-            _toolbar.bottom = CGRectGetMinY(toFrame);
+            self.toolbar.bottom = CGRectGetMinY(toFrame);
         } completion:NULL];
     }
 }
